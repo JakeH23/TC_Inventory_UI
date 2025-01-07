@@ -1,0 +1,50 @@
+
+.row {
+  display:contents;
+  gap: 10px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.action {
+  button {
+    flex: 1;
+  }
+}
+
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.file-upload{
+  display: contents;
+}
+
+.file-input {
+  display: none;
+}
+
+.display-image{
+  height: 372px;
+  width: 600px;
+}

@@ -1,4 +1,4 @@
 export class BoxedChoice {
-  label: string = "";
-  value: boolean = false;
+  label: string;
+  value: boolean;
 }

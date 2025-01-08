@@ -13,8 +13,8 @@ import { CarImage } from 'src/app/components/carousel/carousel.interface';
 })
 export class CarEditComponent implements OnInit {
   carForm: FormGroup;
-  id: number = 0;
-  image: string = "";
+  id: number;
+  image = "";
 
   constructor(
     private _fb: FormBuilder,
@@ -57,7 +57,7 @@ export class CarEditComponent implements OnInit {
       this._carService
         .updateCar(this.id, this.carForm.value)
         .subscribe({
-          next: (val: any) => {
+          next: () => {
             this._coreService.openSnackBar('Car detail updated!');
           },
           error: (err: any) => {

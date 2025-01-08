@@ -47,9 +47,7 @@ export class CarAddComponent implements OnInit {
 
   onFormSubmit() {
     if (this.carForm.valid) {
-      debugger;
       if (this.carForm.controls['id'].value != '') {
-        debugger;
         this._carService.updateCar(this.carForm.controls['id'].value, this.carForm.value).subscribe({
           next: () => {
             this._coreService.openSnackBar('Car added successfully');

@@ -27,7 +27,7 @@
                     <mat-label>Estimated Value</mat-label>
                     <input matInput type="number" placeholder="Ex. 50" formControlName="estimatedValue">
                 </mat-form-field>
-                <label id="example-radio-group-label">Boxed?</label>
+                <mat-label id="example-radio-group-label">Boxed?</mat-label>
                 <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
                     formControlName="boxed">
                     <mat-radio-button class="example-radio-button" *ngFor="let choice of boxedChoices"
@@ -42,7 +42,7 @@
                             No file uploaded yet.
                         </div>
                         <div *ngIf="image">
-                            <img [src]="'data:image/png;base64,'+image" class="thumbnail" />
+                            <img [src]="'data:image/png;base64,'+image" class="thumbnail" alt="Car Image"/>
                         </div>
                         <button type="button" mat-mini-fab color="primary" class="upload-btn"
                             (click)="fileUpload.click()">            

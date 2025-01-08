@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CarsComponent } from './pages/cars/cars.component';
 import { StatsHomeComponent } from './pages/stats-home/stats-home.component';
 import { CarEditComponent } from './pages/car-edit/car-edit.component';
 import { PartsComponent } from './pages/parts/parts.component';
-
-const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([

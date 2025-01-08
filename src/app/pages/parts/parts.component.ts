@@ -9,7 +9,7 @@ import { CoreService } from '../../components/core/core.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'parts',
+  selector: 'app-parts',
   templateUrl: './parts.component.html',
   styleUrls: ['./parts.component.scss'],
 })
@@ -36,7 +36,7 @@ export class PartsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.getPartList();
+    this.getPartList();
   }
 
   openAddPartForm() {
@@ -51,14 +51,14 @@ export class PartsComponent implements OnInit {
   }
 
   getPartList() {
-    this._carService.getCarList().subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      },
-      error: console.log,
-    });
+    // this._carService.getCarList().subscribe({
+    //   next: (res) => {
+    //     this.dataSource = new MatTableDataSource(res);
+    //     this.dataSource.sort = this.sort;
+    //     this.dataSource.paginator = this.paginator;
+    //   },
+    //   error: console.log,
+    // });
   }
 
   applyFilter(event: Event) {
@@ -72,7 +72,7 @@ export class PartsComponent implements OnInit {
 
   deletePart(id: number) {
     this._carService.deleteCar(id).subscribe({
-      next: (res) => {
+      next: () => {
         this._coreService.openSnackBar('Part deleted!', 'done');
         this.getPartList();
       },

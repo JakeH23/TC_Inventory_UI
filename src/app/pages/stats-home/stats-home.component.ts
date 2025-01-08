@@ -6,17 +6,17 @@ import { CarImagesService } from '../../services/car-images.service';
 import { AllStatistics } from 'src/app/models/AllStatistics';
 
 @Component({
-  selector: 'stats-home',
+  selector: 'app-stats-home',
   templateUrl: './stats-home.component.html',
   styleUrls: ['./stats-home.component.scss'],
 })
 export class StatsHomeComponent implements OnInit {
   cars: CarImage[] = [];
 
-  totalCarsCount: number = 0;
-  totalCarsValue: number = 0;
-  boxedTotal: number = 0;
-  unboxedTotal: number = 0;
+  totalCarsCount: number;
+  totalCarsValue: number;
+  boxedTotal: number;
+  unboxedTotal: number;
   displayedColumns: string[] = [
     'make',
     'model',

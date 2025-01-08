@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CarAddComponent } from 'src/app/pages/car-add/car-add.component';
@@ -8,16 +8,12 @@ import { CarAddComponent } from 'src/app/pages/car-add/car-add.component';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
     constructor(
         private _dialog: MatDialog,
         private router: Router
     ) { }
-
-    ngOnInit() {
-    }
-
     openAddEditCarForm() {
         const dialogRef = this._dialog.open(CarAddComponent, {
             width: "100%"

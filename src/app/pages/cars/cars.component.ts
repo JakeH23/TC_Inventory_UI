@@ -9,7 +9,7 @@ import { CoreService } from '../../components/core/core.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'cars',
+  selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.scss'],
 })
@@ -72,7 +72,7 @@ export class CarsComponent implements OnInit {
 
   deleteCar(id: number) {
     this._carService.deleteCar(id).subscribe({
-      next: (res) => {
+      next: () => {
         this._coreService.openSnackBar('Car deleted!', 'done');
         this.getCarList();
       },

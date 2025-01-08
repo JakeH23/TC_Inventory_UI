@@ -3,7 +3,7 @@
     <ng-container *ngFor="let car of cars; let i = index">
         <h3 *ngIf="i === currentSlide"><b>Car Showcase: ({{car.make}} - {{car.model}})</b></h3>
         <img *ngIf="i === currentSlide" [src]="'data:image/png;base64,'+car.image" class="slide"
-            [@slideAnimation]="animationType" />
+            [@slideAnimation]="animationType" alt="Car Image" />
     </ng-container>
 
     <!-- controls -->

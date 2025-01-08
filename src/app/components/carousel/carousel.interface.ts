@@ -1,7 +1,7 @@
 export interface CarImage {
     id: string;
     make: string;
-    model: String;
+    model: string;
     image: string;
   }
   

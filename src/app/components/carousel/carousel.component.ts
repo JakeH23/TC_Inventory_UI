@@ -4,7 +4,7 @@ import { CarImage } from "./carousel.interface";
 import { AnimationType, fadeIn, fadeOut } from "./carousel.animations";
 
 @Component({
-    selector: "carousel",
+    selector: "app-carousel",
     templateUrl: "./carousel.component.html",
     styleUrls: ["./carousel.component.scss"],
     animations: [
@@ -24,8 +24,6 @@ export class CarouselComponent implements OnInit {
     animationType = AnimationType.Fade;
 
     currentSlide = 0;
-
-    constructor() { }
 
     onPreviousClick() {
         const previous = this.currentSlide - 1;

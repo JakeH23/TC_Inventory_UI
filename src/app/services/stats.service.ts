@@ -29,4 +29,8 @@ export class StatsService {
   getMostExpensiveCars(): Observable<any> {
     return this._http.get(`${this.baseUrl}/api/Statistics/GetMostExpensiveCars`);
   }
+
+  getAllStatistics(): Observable<any> {
+    return this._http.get(`${this.baseUrl}/api/Statistics/GetAllStatistics`);
+  }
 }

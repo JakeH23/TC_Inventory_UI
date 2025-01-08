@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StatsService } from '../../services/stats.service';
 import { CarImage } from '../../components/carousel/carousel.interface';
 import { CarImagesService } from '../../services/car-images.service';
+import { AllStatistics } from 'src/app/models/AllStatistics';
 
 @Component({
   selector: 'stats-home',
@@ -31,58 +32,22 @@ export class StatsHomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTotalCarsCount();
-    this.getTotalCarsValue();
-    this.getMostExpensiveCars();
-    this.getBoxedTotal();
-    this.getUnBoxedTotal();
+    this.getAllStatistics();
     this.getRandomCarImages();
   }
 
-  getTotalCarsCount() {
-    this._statsService.getTotalCarsCount().subscribe({
-      next: (res) => {
-        this.totalCarsCount = res; 
+  getAllStatistics() {
+    this._statsService.getAllStatistics().subscribe({
+      next: (res: AllStatistics) => {
+        this.totalCarsCount = res.totalCarsCount; 
+        this.totalCarsValue = res.totalCarsValue; 
+        this.boxedTotal = res.boxedTotal; 
+        this.unboxedTotal = res.unboxedTotal; 
+        this.dataSource = new MatTableDataSource(res.mostExpensiveCars);
       },
       error: console.log,
     });
   }
-
-  getTotalCarsValue() {
-    this._statsService.getTotalCarsValue().subscribe({
-      next: (res) => {
-        this.totalCarsValue = res; 
-      },
-      error: console.log,
-    });
-  }
-
-  getBoxedTotal() {
-    this._statsService.getBoxedTotal().subscribe({
-      next: (res) => {
-        this.boxedTotal = res; 
-      },
-      error: console.log,
-    });
-  }
-
-  getUnBoxedTotal() {
-    this._statsService.getUnboxedTotal().subscribe({
-      next: (res) => {
-        this.unboxedTotal = res; 
-      },
-      error: console.log,
-    });
-  }  
-
-  getMostExpensiveCars() {
-    this._statsService.getMostExpensiveCars().subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-      },
-      error: console.log,
-    });
-  } 
 
   getRandomCarImages() {
     this._carImagesService.getRandomCarImages().subscribe({

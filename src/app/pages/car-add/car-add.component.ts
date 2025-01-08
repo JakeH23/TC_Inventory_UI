@@ -6,7 +6,6 @@ import { CarService } from '../../services/car.service';
 import { CarImagesService } from 'src/app/services/car-images.service';
 import { CarImage } from 'src/app/components/carousel/carousel.interface';
 import { BoxedChoice } from 'src/app/models/BoxedChoice';
-import { Car } from 'src/app/models/Car';
 
 @Component({
   selector: 'app-car-add',

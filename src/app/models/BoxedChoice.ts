@@ -1,4 +1,4 @@
-export class BoxedChoice{
-    label: string = "";
-    value: boolean =false;
-  }
+export class BoxedChoice {
+  label: string = "";
+  value: boolean = false;
+}

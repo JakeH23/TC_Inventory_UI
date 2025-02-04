@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    baseUrl: "https://tcinventoryapi.azure-api.net/tc-inventory"
+    baseUrl: "https://tcinventory-production.up.railway.app"
 };

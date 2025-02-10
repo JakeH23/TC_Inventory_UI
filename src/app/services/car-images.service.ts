@@ -9,13 +9,15 @@ import { environment } from 'src/environments/environment';
 })
 export class CarImagesService {
   baseUrl = environment.baseUrl;
+  headers = { 'Access-Control-Allow-Origin': '*'};
+
   constructor(private _http: HttpClient) { }
 
   getRandomCarImages(): Observable<CarImage[]> {
-    return this._http.get<CarImage[]>(`${this.baseUrl}/api/CarImages`);
+    return this._http.get<CarImage[]>(`${this.baseUrl}/api/CarImages`, { headers: this.headers });
   }
 
   uploadCarImage(data: FormData): Observable<CarImage> {
-    return this._http.post<CarImage>(`${this.baseUrl}/api/CarImages`, data);
+    return this._http.post<CarImage>(`${this.baseUrl}/api/CarImages`, data, { headers: this.headers });
   }
 }

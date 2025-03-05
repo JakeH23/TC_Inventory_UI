@@ -67,14 +67,13 @@ export class CarEditComponent implements OnInit {
     }
   }
 
-    onFileSelected(event: any): void {
-      const file: File = event.target.files[0];
-      const formData = new FormData();
-      formData.append("file", file);
-      this._carImagesService.uploadCarImage(formData)
-        .subscribe((result: CarImage) => {
-          this.image = result.image;
-          this.carForm.patchValue({ id: result.id })
-        });
-    }
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    this._carImagesService.updateCarImage(formData, this.id)
+      .subscribe((result: CarImage) => {
+        this.image = result.image;
+      });
+  }
 }

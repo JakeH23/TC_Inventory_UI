@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CarAddComponent } from 'src/app/pages/car-add/car-add.component';
@@ -6,7 +6,8 @@ import { CarAddComponent } from 'src/app/pages/car-add/car-add.component';
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
 
@@ -21,7 +22,9 @@ export class NavbarComponent {
         dialogRef.afterClosed().subscribe({
             next: (val) => {
                 if (val) {
-                    this.router.navigate([`/cars/${val}`]);
+                    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                        this.router.navigate([`/cars/${val}`]);
+                    });
                 }
             },
         });

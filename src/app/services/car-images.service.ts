@@ -20,4 +20,8 @@ export class CarImagesService {
   uploadCarImage(data: FormData): Observable<CarImage> {
     return this._http.post<CarImage>(`${this.baseUrl}/api/CarImages`, data, { headers: this.headers });
   }
+
+  updateCarImage(data: FormData, id: number): Observable<CarImage> {
+    return this._http.put<CarImage>(`${this.baseUrl}/api/CarImages/${id}`, data, { headers: this.headers });
+  }
 }
